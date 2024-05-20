@@ -1,0 +1,203 @@
+proc getPresetInfo {} {
+  return [dict create name {zynq_ps} description {zynq_ps}  vlnv xilinx.com:ip:processing_system7:5.5 display_name {zynq_ps} ]
+}
+
+proc validate_preset {IPINST} { return true }
+
+
+proc apply_preset {IPINST} {
+  return [dict create \
+    CONFIG.PCW_DDR_RAM_HIGHADDR {0x3FFFFFFF}  \
+    CONFIG.PCW_UIPARAM_DDR_ROW_ADDR_COUNT {15}  \
+    CONFIG.PCW_UIPARAM_DDR_T_FAW {40.0}  \
+    CONFIG.PCW_ACT_SMC_PERIPHERAL_FREQMHZ {100.000000}  \
+    CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {125.000000}  \
+    CONFIG.PCW_ACT_SDIO_PERIPHERAL_FREQMHZ {100.000000}  \
+    CONFIG.PCW_ACT_UART_PERIPHERAL_FREQMHZ {100.000000}  \
+    CONFIG.PCW_SMC_PERIPHERAL_DIVISOR0 {10}  \
+    CONFIG.PCW_SDIO_PERIPHERAL_DIVISOR0 {10}  \
+    CONFIG.PCW_UART_PERIPHERAL_DIVISOR0 {10}  \
+    CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {5}  \
+    CONFIG.PCW_ENET0_PERIPHERAL_DIVISOR0 {8}  \
+    CONFIG.PCW_PCAP_PERIPHERAL_DIVISOR0 {5}  \
+    CONFIG.PCW_IOPLL_CTRL_FBDIV {30}  \
+    CONFIG.PCW_IO_IO_PLL_FREQMHZ {1000.000}  \
+    CONFIG.PCW_SMC_PERIPHERAL_VALID {1}  \
+    CONFIG.PCW_SDIO_PERIPHERAL_VALID {1}  \
+    CONFIG.PCW_UART_PERIPHERAL_VALID {1}  \
+    CONFIG.PCW_USE_M_AXI_GP0 {0}  \
+    CONFIG.PCW_EN_SMC {1}  \
+    CONFIG.PCW_EN_ENET0 {1}  \
+    CONFIG.PCW_EN_SDIO0 {1}  \
+    CONFIG.PCW_EN_UART1 {1}  \
+    CONFIG.PCW_EN_RST0_PORT {0}  \
+    CONFIG.PCW_UIPARAM_DDR_PARTNO {MT41K256M16 RE-125}  \
+    CONFIG.PCW_UIPARAM_DDR_DRAM_WIDTH {16 Bits}  \
+    CONFIG.PCW_UIPARAM_DDR_DEVICE_CAPACITY {4096 MBits}  \
+    CONFIG.PCW_NAND_PERIPHERAL_ENABLE {1}  \
+    CONFIG.PCW_NAND_NAND_IO {MIO 0 2.. 14}  \
+    CONFIG.PCW_ENET0_PERIPHERAL_ENABLE {1}  \
+    CONFIG.PCW_ENET0_ENET0_IO {MIO 16 .. 27}  \
+    CONFIG.PCW_ENET0_GRP_MDIO_ENABLE {1}  \
+    CONFIG.PCW_ENET0_GRP_MDIO_IO {MIO 52 .. 53}  \
+    CONFIG.PCW_SD0_PERIPHERAL_ENABLE {1}  \
+    CONFIG.PCW_SD0_SD0_IO {MIO 40 .. 45}  \
+    CONFIG.PCW_UART1_PERIPHERAL_ENABLE {1}  \
+    CONFIG.PCW_UART1_UART1_IO {MIO 48 .. 49}  \
+    CONFIG.PCW_MIO_0_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_0_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_0_DIRECTION {out}  \
+    CONFIG.PCW_MIO_0_SLEW {slow}  \
+    CONFIG.PCW_MIO_2_PULLUP {disabled}  \
+    CONFIG.PCW_MIO_2_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_2_DIRECTION {out}  \
+    CONFIG.PCW_MIO_2_SLEW {slow}  \
+    CONFIG.PCW_MIO_3_PULLUP {disabled}  \
+    CONFIG.PCW_MIO_3_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_3_DIRECTION {out}  \
+    CONFIG.PCW_MIO_3_SLEW {slow}  \
+    CONFIG.PCW_MIO_4_PULLUP {disabled}  \
+    CONFIG.PCW_MIO_4_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_4_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_4_SLEW {slow}  \
+    CONFIG.PCW_MIO_5_PULLUP {disabled}  \
+    CONFIG.PCW_MIO_5_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_5_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_5_SLEW {slow}  \
+    CONFIG.PCW_MIO_6_PULLUP {disabled}  \
+    CONFIG.PCW_MIO_6_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_6_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_6_SLEW {slow}  \
+    CONFIG.PCW_MIO_7_PULLUP {disabled}  \
+    CONFIG.PCW_MIO_7_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_7_DIRECTION {out}  \
+    CONFIG.PCW_MIO_7_SLEW {slow}  \
+    CONFIG.PCW_MIO_8_PULLUP {disabled}  \
+    CONFIG.PCW_MIO_8_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_8_DIRECTION {out}  \
+    CONFIG.PCW_MIO_8_SLEW {slow}  \
+    CONFIG.PCW_MIO_9_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_9_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_9_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_9_SLEW {slow}  \
+    CONFIG.PCW_MIO_10_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_10_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_10_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_10_SLEW {slow}  \
+    CONFIG.PCW_MIO_11_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_11_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_11_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_11_SLEW {slow}  \
+    CONFIG.PCW_MIO_12_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_12_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_12_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_12_SLEW {slow}  \
+    CONFIG.PCW_MIO_13_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_13_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_13_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_13_SLEW {slow}  \
+    CONFIG.PCW_MIO_14_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_14_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_14_DIRECTION {in}  \
+    CONFIG.PCW_MIO_14_SLEW {slow}  \
+    CONFIG.PCW_MIO_16_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_16_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_16_DIRECTION {out}  \
+    CONFIG.PCW_MIO_16_SLEW {slow}  \
+    CONFIG.PCW_MIO_17_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_17_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_17_DIRECTION {out}  \
+    CONFIG.PCW_MIO_17_SLEW {slow}  \
+    CONFIG.PCW_MIO_18_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_18_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_18_DIRECTION {out}  \
+    CONFIG.PCW_MIO_18_SLEW {slow}  \
+    CONFIG.PCW_MIO_19_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_19_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_19_DIRECTION {out}  \
+    CONFIG.PCW_MIO_19_SLEW {slow}  \
+    CONFIG.PCW_MIO_20_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_20_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_20_DIRECTION {out}  \
+    CONFIG.PCW_MIO_20_SLEW {slow}  \
+    CONFIG.PCW_MIO_21_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_21_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_21_DIRECTION {out}  \
+    CONFIG.PCW_MIO_21_SLEW {slow}  \
+    CONFIG.PCW_MIO_22_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_22_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_22_DIRECTION {in}  \
+    CONFIG.PCW_MIO_22_SLEW {slow}  \
+    CONFIG.PCW_MIO_23_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_23_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_23_DIRECTION {in}  \
+    CONFIG.PCW_MIO_23_SLEW {slow}  \
+    CONFIG.PCW_MIO_24_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_24_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_24_DIRECTION {in}  \
+    CONFIG.PCW_MIO_24_SLEW {slow}  \
+    CONFIG.PCW_MIO_25_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_25_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_25_DIRECTION {in}  \
+    CONFIG.PCW_MIO_25_SLEW {slow}  \
+    CONFIG.PCW_MIO_26_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_26_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_26_DIRECTION {in}  \
+    CONFIG.PCW_MIO_26_SLEW {slow}  \
+    CONFIG.PCW_MIO_27_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_27_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_27_DIRECTION {in}  \
+    CONFIG.PCW_MIO_27_SLEW {slow}  \
+    CONFIG.PCW_MIO_40_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_40_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_40_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_40_SLEW {slow}  \
+    CONFIG.PCW_MIO_41_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_41_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_41_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_41_SLEW {slow}  \
+    CONFIG.PCW_MIO_42_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_42_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_42_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_42_SLEW {slow}  \
+    CONFIG.PCW_MIO_43_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_43_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_43_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_43_SLEW {slow}  \
+    CONFIG.PCW_MIO_44_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_44_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_44_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_44_SLEW {slow}  \
+    CONFIG.PCW_MIO_45_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_45_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_45_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_45_SLEW {slow}  \
+    CONFIG.PCW_MIO_48_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_48_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_48_DIRECTION {out}  \
+    CONFIG.PCW_MIO_48_SLEW {slow}  \
+    CONFIG.PCW_MIO_49_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_49_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_49_DIRECTION {in}  \
+    CONFIG.PCW_MIO_49_SLEW {slow}  \
+    CONFIG.PCW_MIO_52_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_52_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_52_DIRECTION {out}  \
+    CONFIG.PCW_MIO_52_SLEW {slow}  \
+    CONFIG.PCW_MIO_53_PULLUP {enabled}  \
+    CONFIG.PCW_MIO_53_IOTYPE {LVCMOS 3.3V}  \
+    CONFIG.PCW_MIO_53_DIRECTION {inout}  \
+    CONFIG.PCW_MIO_53_SLEW {slow}  \
+    CONFIG.PCW_MIO_TREE_PERIPHERALS {NAND Flash#unassigned#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#NAND Flash#unassigned#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#Enet 0#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#SD 0#SD 0#SD 0#SD 0#SD 0#SD 0#unassigned#unassigned#UART 1#UART 1#unassigned#unassigned#Enet 0#Enet 0}  \
+    CONFIG.PCW_MIO_TREE_SIGNALS {cs#unassigned#ale#we_b#data[2]#data[0]#data[1]#cle#re_b#data[4]#data[5]#data[6]#data[7]#data[3]#busy#unassigned#tx_clk#txd[0]#txd[1]#txd[2]#txd[3]#tx_ctl#rx_clk#rxd[0]#rxd[1]#rxd[2]#rxd[3]#rx_ctl#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#clk#cmd#data[0]#data[1]#data[2]#data[3]#unassigned#unassigned#tx#rx#unassigned#unassigned#mdc#mdio}  \
+    CONFIG.PCW_NAND_CYCLES_T_RR {20}  \
+    CONFIG.PCW_NAND_CYCLES_T_AR {10}  \
+    CONFIG.PCW_NAND_CYCLES_T_CLR {10}  \
+    CONFIG.PCW_NAND_CYCLES_T_WP {15}  \
+    CONFIG.PCW_NAND_CYCLES_T_REA {18}  \
+    CONFIG.PCW_NAND_CYCLES_T_WC {30}  \
+    CONFIG.PCW_NAND_CYCLES_T_RC {30}  \
+  ]
+}
+
+
