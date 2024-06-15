@@ -32,3 +32,16 @@
 https://rcn-ee.com/rootfs/eewiki/minfs/
 
 в /etc/passwd в начале убираем x - root:x: -> root::
+
+
+В u-boot 
+
+setenv bootcmd "fatload mmc 0 0x3000000 uImage; fatload mmc 0 0x2A00000 devicetree.dtb; bootm 0x3000000 - 0x2A00000"
+setenv bootargs "mem=500M console=tty7 console=ttyPS0,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext4 fsck.repair=yes rootwait"
+saveenv
+reset
+
+В ubuntu на antminer вставляем lan из роутера
+
+sudo dhclient -r eth0
+sudo dhclient eth0
