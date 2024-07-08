@@ -1,0 +1,76 @@
+1. Генерируем device tree
+
+	git clone https://github.com/Xilinx/device-tree-xlnx
+	git checkout "версия вивадо"
+	Добавляем в репозитории в sdk
+	Создаем device tree
+
+	в system-top.dts меняем /include/ -> #include
+
+	в zynq-7000.dtsi находим slcr и вставляем в двух местах u-boot,dm-pre-reloc;
+
+			slcr: slcr@f8000000 {
+			u-boot,dm-pre-reloc;
+			.
+			.
+			.
+			clkc: clkc@100 {
+				u-boot,dm-pre-reloc;
+				
+
+	В папке device tree вводим команду
+
+	gcc -I my_dts -E -nostdinc -undef -D__DTS__ -x assembler-with-cpp -o system.dts system-top.dts
+
+
+/*********************************************************************/
+
+2. Далее пересобираем u-boot
+
+	Копируем system.dts в arch/arm/dts/bitmain.dts
+
+	В папке u-boot-xlnx
+
+	make distclean
+	export CROSS_COMPILE=arm-linux-gnueabihf-
+	make bitmain_antminer_s9_defconfig
+	make
+
+	Создаем boot.bin в sdk
+
+	Копируем boot.bin и devicetree.dtb на sd карту
+
+/*********************************************************************/
+
+3. На antminer 
+
+	passwd root
+	nano /etc/ssh/sshd_config
+	PermitRootLogin yes
+	sudo systemctl restart ssh
+
+	sudo dhclient -r eth0
+	sudo dhclient eth0
+
+/*********************************************************************/
+
+4. Далее заходим по ssh и записываем значение в gpio через sysfs
+
+	cd /sys/class/gpio/
+	echo 512 > export
+	echo out > gpio512/direction
+	echo 1 > gpio512/value
+
+
+/*********************************************************************/
+
+5. Записываем через mmap
+
+	cd /root
+	mkdir axi_gpio
+	cd axi_gpio
+	nano axi_gpio.cpp
+	apt-get update
+	apt-get install g++
+	g++ axi_gpio.cpp -o axi_gpio
+	./axi_gpio
