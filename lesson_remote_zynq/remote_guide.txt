@@ -1,0 +1,65 @@
+https://askubuntu.com/questions/1313445/how-do-i-install-vnc-on-a-headless-ubuntu-20-10
+
+sudo apt-get clean 
+rm -rf /var/lib/apt/lists/*
+sudo apt-get clean 
+sudo apt-get update
+sudo apt-get upgrade
+
+
+sudo apt-get install xvfb
+sudo apt install xfce4 xfce4-goodies
+sudo apt install x11vnc
+x11vnc -storepasswd
+
+
+
+export DISPLAY=:1
+Xvfb $DISPLAY -screen 0 1024x768x16
+
+
+export DISPLAY=:1
+xfce4-session
+
+
+export DISPLAY=:1
+x11vnc -display $DISPLAY -forever -loop -noxdamage -repeat -rfbauth /root/.vnc/passwd -rfbport 5900 -shared
+
+sudo apt install tigervnc-viewer
+
+vncviewer
+
+-------------------------------------------------------------------
+
+
+nano /root/start_vnc.sh
+
+#!/bin/bash
+source /root/.bashrc
+export DISPLAY=:1
+Xvfb $DISPLAY -screen 0 1024x768x16 &
+xfce4-session &
+x11vnc -display $DISPLAY -forever -loop -noxdamage -repeat -rfbauth /root/.vnc/passwd -rfbport 5900 -shared &
+
+
+chmod ugo+x start_vnc.sh
+
+crontab -e
+
+@reboot /root/start_vnc.sh
+
+-------------------------------------------------------------------
+
+
+gedit 
+
+preferenses -> external tools
+
+setting -> manage external tools
+
+new script
+
+#!/bin/bash
+g++ -o axi_gpio.out $GEDIT_CURRENT_DOCUMENT_NAME
+./axi_gpio.out
+rm ./axi_gpio.out
