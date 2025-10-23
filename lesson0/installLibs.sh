@@ -70,6 +70,7 @@ doUbuntu()
    apt-get install -y libasound2   | tee -a $logFile
    apt-get install -y compat-openssl10  | tee -a $logFile
    apt-get install -y fdisk  | tee -a $logFile
+   apt-get install -y libtinfo-dev  | tee -a $logFile
 }
 
 doCentOs_RHEL_common()
