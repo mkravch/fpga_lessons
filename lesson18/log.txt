@@ -1,0 +1,29 @@
+1 Устанавливаем wsl в командной строке wsl --install
+2 ставим x server для монитора vcxsrv windows x server
+3 Чтобы открыть в папке терминал зажимаем шифт и пкм
+
+4 sudo apt install x11-apps 
+  export DISPLAY=127.0.0.1:0
+  Проверям xcalc
+
+5 Вивадо можно поставить без монитора 
+sudo ./xsetup --batch Install --agree XilinxEULA,3rdPartyEULA,WebTalkTerms -e "Vivado HL Design Edition" -x
+
+6 Ставим с монитором  ./xsetup
+
+
+
+LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/mnt/e/Xilinx_linux/Vivado/2017.1/lib/lnx64.o/:/mnt/e/Xilinx_linux/SDK/2017.1/lib/lnx64.o/:/mnt/e/Xilinx_linux/Vivado/2017.1/lnx64/tools/clang-3.9/lib /mnt/e/Xilinx_linux/Vivado/2017.1/bin/vivado -nolog -nojournal -mode batch -source /mnt/e/Xilinx_linux/.xinstall/Vivado_2017.1/scripts/xlpartinfo.tcl -tclargs /mnt/e/Xilinx_linux/Vivado/2017.1/data/parts/installed_devices.txt
+
+https://lukas-prokop.at/articles/2021-02-02-vivado-install-stuck
+
+https://adaptivesupport.amd.com/s/article/76585?language=en_US
+
+sudo apt install libtinfo-dev
+
+sudo ln -s /lib/x86_64-linux-gnu/libtinfo.so.6 /lib/x86_64-linux-gnu/libtinfo.so.5
+
+
+git clone https://github.com/analogdevicesinc/hdl/
+
+

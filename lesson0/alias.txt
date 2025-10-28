@@ -1,0 +1,4 @@
+alias xil171=". ~/programs/Vivado/2017.1/settings64.sh"
+alias xil183=". /opt/Xilinx/Vivado/2018.3/settings64.sh"
+alias xil191=". ~/programs/Vivado/2019.1/settings64.sh"
+alias peta211=". ~/programs/Petalinux/settings.sh"

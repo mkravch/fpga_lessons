@@ -30,7 +30,6 @@
 *.err
 *_html
 *.sld
-*.txt
 *.qsys
 *.str
 *.mif
