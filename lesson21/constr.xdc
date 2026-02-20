@@ -1,0 +1,32 @@
+set_property -dict {PACKAGE_PIN J20 IOSTANDARD LVCMOS33} [get_ports gpio_0_tri_io[3]]
+set_property -dict {PACKAGE_PIN K21 IOSTANDARD LVCMOS33} [get_ports gpio_0_tri_io[2]]
+set_property -dict {PACKAGE_PIN P21 IOSTANDARD LVCMOS33} [get_ports gpio_0_tri_io[1]]
+set_property -dict {PACKAGE_PIN P20 IOSTANDARD LVCMOS33} [get_ports gpio_0_tri_io[0]]
+
+set_property -dict {PACKAGE_PIN M17 IOSTANDARD LVCMOS33} [get_ports UART_0_rxd]
+set_property -dict {PACKAGE_PIN L17 IOSTANDARD LVCMOS33} [get_ports UART_0_txd]
+
+
+
+set_property -dict {PACKAGE_PIN G21 IOSTANDARD LVCMOS33} [get_ports MDIO_ETHERNET_0_mdc]
+set_property -dict {PACKAGE_PIN H22 IOSTANDARD LVCMOS33} [get_ports mdio_ethernet_0_mdio_io]
+set_property -dict {PACKAGE_PIN A22 IOSTANDARD LVCMOS33} [get_ports {rgmii_rd[0]}]
+set_property -dict {PACKAGE_PIN A18 IOSTANDARD LVCMOS33} [get_ports {rgmii_rd[1]}]
+set_property -dict {PACKAGE_PIN A19 IOSTANDARD LVCMOS33} [get_ports {rgmii_rd[2]}]
+set_property -dict {PACKAGE_PIN B20 IOSTANDARD LVCMOS33} [get_ports {rgmii_rd[3]}]
+set_property -dict {PACKAGE_PIN A21 IOSTANDARD LVCMOS33} [get_ports rgmii_rx_ctl]
+set_property -dict {PACKAGE_PIN B19 IOSTANDARD LVCMOS33} [get_ports rgmii_rxc]
+set_property -dict {PACKAGE_PIN E21 IOSTANDARD LVCMOS33} [get_ports {rgmii_td[0]}]
+set_property -dict {PACKAGE_PIN F21 IOSTANDARD LVCMOS33} [get_ports {rgmii_td[1]}]
+set_property -dict {PACKAGE_PIN F22 IOSTANDARD LVCMOS33} [get_ports {rgmii_td[2]}]
+set_property -dict {PACKAGE_PIN G20 IOSTANDARD LVCMOS33} [get_ports {rgmii_td[3]}]
+set_property -dict {PACKAGE_PIN G22 IOSTANDARD LVCMOS33} [get_ports rgmii_tx_ctl]
+set_property -dict {PACKAGE_PIN D21 IOSTANDARD LVCMOS33} [get_ports rgmii_txc]
+set_property SLEW FAST [get_ports {rgmii_td[0]}]
+set_property SLEW FAST [get_ports {rgmii_td[1]}]
+set_property SLEW FAST [get_ports {rgmii_td[2]}]
+set_property SLEW FAST [get_ports {rgmii_td[3]}]
+set_property SLEW FAST [get_ports rgmii_tx_ctl]
+set_property SLEW FAST [get_ports rgmii_txc]
+
+create_clock -period 8 -name rgmii_rxc [get_ports rgmii_rxc]

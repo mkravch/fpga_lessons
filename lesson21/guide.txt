@@ -1,0 +1,15 @@
+git clone https://github.com/Xilinx/device-tree-xlnx
+git checkout xilinx-v2019.1
+git clone https://github.com/Xilinx/u-boot-xlnx
+git checkout xilinx-v2025.2
+
+gcc -I my_dts -E -nostdinc -undef -D__DTS__ -x assembler-with-cpp -o system.dts system-top.dts
+dtc -I dts -O dtb -o system.dtb system.dts
+cp system.dtb ../../../smart-zynq.dtb & cp system.dtb ../../../devicetree.dtb & cp system.dts ../../../smart-zynq.dts
+
+make distclean
+export CROSS_COMPILE=arm-linux-gnueabihf-
+make xilinx_zynq_virt_defconfig
+export DEVICE_TREE="smart-zynq"
+cp ../smart-zynq.dts arch/arm/dts/ & cp ../smart-zynq.dtb arch/arm/dts/
+make

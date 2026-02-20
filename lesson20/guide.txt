@@ -1,0 +1,18 @@
+
+git clone https://github.com/Xilinx/linux-xlnx
+cd linux-xlnx/
+
+CONFIG_CFG80211=y
+CONFIG_MAC80211=y
+
+make distclean
+export CROSS_COMPILE=arm-linux-gnueabihf-
+
+make ARCH=arm xilinx_zynq_defconfig menuconfig
+Device Drivers -> Network device support -> Wireless LAN 
+
+make ARCH=arm UIMAGE_LOADADDR=0x8000 uImage
+cp arch/arm/boot/uImage ../
+
+nmcli device wifi list
+nmcli device wifi connect wifi_net password "" ifname wlxc8fe30ffc2b9
